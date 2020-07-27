@@ -1,0 +1,275 @@
+Code course reset :
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+Code course style :
+/* Font */
+@font-face {
+	font-family: 'BebasNeue' :;
+	src: url(../BebasNeue-Regular.woff) format('woff');
+
+
+}
+
+/* style utama*/
+body{
+	font: 18px/36px'BebasNeue', 'Arial Narrow','BebasNeue-Regular', arial, sans-serif;
+	background-color: #dddd;
+}
+
+h1{
+	font-size: 80px;
+	margin: 50px 0;
+	text-align: center;
+	text-shadow: 1px 1px 2px white;
+}
+
+.container{
+	width: 600px;
+	background-color: white;
+	margin: auto;
+	padding: 30px;
+	box-shadow: 0 0 3px 3px rgba(0,0,0,.3);
+	border-radius: 5px;
+}
+
+.gallery li {
+	width: 120px;
+	height: 120px;
+	overflow: hidden;
+	border: 5px solid #666;
+	float: left;
+	margin-right: 20px;
+	position: relative;
+
+}
+.gallery li,
+.gallery li img, 
+.gallery li span{
+	border-radius: 50%;
+}
+
+.gallery li span {
+	display: block;
+	width: 120px;
+	height: 120px;
+	background-color: rgba(200, 200, 200,.5);
+	position: absolute;
+	top: 0;
+	text-align: center;
+	line-height: 120px;
+	color: #333;
+	text-shadow: 1px 1px 1px #ddd;
+	opacity: 0;
+	transition: scale(0) rotate(0);
+	transition: .3s;
+
+}
+.gallery li a:hover span {
+	opacity: 1;
+	transform: scale(1) rotate(360deg);
+}
+
+.clear{
+	clear: both;
+	margin-right: 10px;
+}
+
+
+
+/*overlay*/
+.overlay{
+	width: 0;
+	height: 0;
+	overflow: hidden;
+	position: fixed;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	background-color: rgba(0,0,0,0);
+	z-index: 9999;
+	transition: .8s;
+	text-align: center;
+	padding: 100px 0;
+
+}
+
+.overlay:target{
+	width: auto;
+	height: auto;
+	bottom: 0;
+	right: 0;
+	background-color: rgba(0,0,0,.7);
+
+}
+.overlay img {
+	max-height: 70%;
+	box-shadow: 2px 2px 7px rgba(0,0,0,.5);
+
+
+}
+
+.overlay:target img {
+	animation: zoomDanFade 1s;
+}
+.overlay .close{
+	position: absolute;
+	top: 50px;
+	left: 50%;
+	color: white;
+	text-decoration: none;
+	background-color: black;
+	border: 1px solid white;
+	line-height: 14px;
+	padding: 5px;
+	
+
+}
+
+.overlay:target .close {
+	animation: slideDownFade .5s .5s forwards;
+}
+/*animasi*/
+@keyframes zoomDanFade {
+	0%{
+		transform: scale(0);
+		opacity: 0;
+	}
+	70%{
+		transform: scale(1);
+		opacity: 1;
+	}
+}
+
+@keyframes slideDownFade{
+	0% {
+		opacity: 0;
+		margin-top: -20px
+	}
+	70%{
+		opacity: 1;
+		margin-top: 0;
+	}
+}
+
+Code course index :
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>gallery</title>
+	<link rel="stylesheet" type="text/css" href="css/reset.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+<h1>The Birt</h1>
+
+<div class="container">
+	<ul class="gallery">
+
+		<li>
+
+			<a href="#gambar-1">
+				<img src="img/thums/1.jpg" alt="bunga">
+			<span>bunga</span>
+
+			</a>
+			<div class="overlay"id="gambar-1">
+				<a href="" class="close">x close</a>
+			<img src="img/full/1.jpg" alt="bunga   ">
+
+		</div>
+		</li>
+
+		<li>
+
+			<a href="#gambar-2">
+				<img src="img/thums/2.jpg" alt="air">
+			<span>air</span>
+
+			</a>
+			<div class="overlay"id="gambar-2">
+				<a href="" class="close">x close</a>
+			<img src="img/full/2.jpg" alt="air  ">
+
+		</div>
+		</li>
+
+		<li>
+
+			<a href="#gambar-3">
+				<img src="img/thums/3.jpg" alt="angin">
+			<span>angin</span>
+
+			</a>
+		</li>
+
+		<li>
+			<div class="overlay"id="gambar-3">
+				<a href="" class="close">x close</a>
+			<img src="img/full/3.jpg" alt="angin">
+
+		</div>
+
+			<a href="#gambar-4">
+				<img src="img/thums/4.jpg" alt="tanah">
+			<span>tanah</span>
+
+			</a>
+			<div class="overlay"id="gambar-4">
+				<a href="" class="close">x close</a>
+			<img src="img/full/4.jpg" alt="tanah">
+
+		</div>
+		</li>
+		
+		
+		
+
+		<div class="clear"></div>
+	</ul>
+</div>
+</body>
+</html>
